@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 
 app.use(cors({
-    origin: "http://localhost:3000", // Allow frontend running on port 3000
+    origin: "https://prod-catalog.vercel.app", // Allow frontend running on port 3000
     credentials: true                // If you use cookies/auth headers
 }));
 
