@@ -21,6 +21,15 @@ import {
 } from "@/components/ui/select";
 import axios from "axios";
 
+interface Product {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  stock: number;
+}
+
 const categories = ["fruits", "sport","all"];
 const sortOptions = [
   { label: "Price Low to High", value: "1" },
@@ -28,7 +37,7 @@ const sortOptions = [
 ];
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [category, setCategory] = useState("");
   const [sortOrder, setSortOrder] = useState("1");
   const [page, setPage] = useState(1);
@@ -42,7 +51,7 @@ export default function Home() {
     try {
       const catParam = category ? category : "all";  // Use 'all' or empty string to indicate no filter
       const res = await axios.get(
-        `http://localhost:8000/api/v1/filter/${catParam}/${page}/${limit}/${sortOrder}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/filter/${catParam}/${page}/${limit}/${sortOrder}`
       );
       setProducts(res.data);
     } catch (err) {
