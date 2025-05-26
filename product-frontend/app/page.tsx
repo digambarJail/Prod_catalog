@@ -83,14 +83,6 @@ export default function Home() {
             ))}
           </SelectContent>
         </Select>
-
-        <Input
-          type="number"
-          value={limit}
-          onChange={(e) => setLimit(Number(e.target.value))}
-          placeholder="Items per page"
-          className="w-[140px]"
-        />
       </div>
 
       <Table>
