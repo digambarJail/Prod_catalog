@@ -38,7 +38,7 @@ const sortOptions = [
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("all");
   const [sortOrder, setSortOrder] = useState("1");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(5);
